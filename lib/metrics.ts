@@ -396,7 +396,7 @@ async function fetchProfiles(
     const r = await supabase.from("profiles").select(base + attribution);
     if (!r.error) {
       attributionColumnsAvailable = true;
-      return { attributionAvailable: true, data: (r.data ?? []) as ProfileRow[] };
+      return { attributionAvailable: true, data: (r.data ?? []) as unknown as ProfileRow[] };
     }
     attributionColumnsAvailable = false;
   }
